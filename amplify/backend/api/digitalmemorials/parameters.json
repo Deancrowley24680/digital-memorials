@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "digitalmemorials",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2024-02-22T22:18:27.498Z"
+}

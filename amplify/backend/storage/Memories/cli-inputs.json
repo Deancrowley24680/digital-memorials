@@ -1,0 +1,14 @@
+{
+  "resourceName": "Memories",
+  "policyUUID": "046bd618",
+  "bucketName": "digital-memorials-bucket",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
