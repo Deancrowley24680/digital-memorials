@@ -50,6 +50,10 @@ export const onCreateMemory = /* GraphQL */ `
       name
       comment
       image
+      responses {
+        nextToken
+        __typename
+      }
       createdAt
       updatedAt
       __typename
@@ -63,6 +67,10 @@ export const onUpdateMemory = /* GraphQL */ `
       name
       comment
       image
+      responses {
+        nextToken
+        __typename
+      }
       createdAt
       updatedAt
       __typename
@@ -74,6 +82,76 @@ export const onDeleteMemory = /* GraphQL */ `
     onDeleteMemory(filter: $filter) {
       id
       name
+      comment
+      image
+      responses {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onCreateResponse = /* GraphQL */ `
+  subscription OnCreateResponse($filter: ModelSubscriptionResponseFilterInput) {
+    onCreateResponse(filter: $filter) {
+      id
+      memoryId
+      memory {
+        id
+        name
+        comment
+        image
+        createdAt
+        updatedAt
+        __typename
+      }
+      comment
+      image
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onUpdateResponse = /* GraphQL */ `
+  subscription OnUpdateResponse($filter: ModelSubscriptionResponseFilterInput) {
+    onUpdateResponse(filter: $filter) {
+      id
+      memoryId
+      memory {
+        id
+        name
+        comment
+        image
+        createdAt
+        updatedAt
+        __typename
+      }
+      comment
+      image
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onDeleteResponse = /* GraphQL */ `
+  subscription OnDeleteResponse($filter: ModelSubscriptionResponseFilterInput) {
+    onDeleteResponse(filter: $filter) {
+      id
+      memoryId
+      memory {
+        id
+        name
+        comment
+        image
+        createdAt
+        updatedAt
+        __typename
+      }
       comment
       image
       createdAt

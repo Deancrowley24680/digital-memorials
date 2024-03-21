@@ -56,6 +56,10 @@ export const createMemory = /* GraphQL */ `
       name
       comment
       image
+      responses {
+        nextToken
+        __typename
+      }
       createdAt
       updatedAt
       __typename
@@ -72,6 +76,10 @@ export const updateMemory = /* GraphQL */ `
       name
       comment
       image
+      responses {
+        nextToken
+        __typename
+      }
       createdAt
       updatedAt
       __typename
@@ -86,6 +94,85 @@ export const deleteMemory = /* GraphQL */ `
     deleteMemory(input: $input, condition: $condition) {
       id
       name
+      comment
+      image
+      responses {
+        nextToken
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const createResponse = /* GraphQL */ `
+  mutation CreateResponse(
+    $input: CreateResponseInput!
+    $condition: ModelResponseConditionInput
+  ) {
+    createResponse(input: $input, condition: $condition) {
+      id
+      memoryId
+      memory {
+        id
+        name
+        comment
+        image
+        createdAt
+        updatedAt
+        __typename
+      }
+      comment
+      image
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const updateResponse = /* GraphQL */ `
+  mutation UpdateResponse(
+    $input: UpdateResponseInput!
+    $condition: ModelResponseConditionInput
+  ) {
+    updateResponse(input: $input, condition: $condition) {
+      id
+      memoryId
+      memory {
+        id
+        name
+        comment
+        image
+        createdAt
+        updatedAt
+        __typename
+      }
+      comment
+      image
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const deleteResponse = /* GraphQL */ `
+  mutation DeleteResponse(
+    $input: DeleteResponseInput!
+    $condition: ModelResponseConditionInput
+  ) {
+    deleteResponse(input: $input, condition: $condition) {
+      id
+      memoryId
+      memory {
+        id
+        name
+        comment
+        image
+        createdAt
+        updatedAt
+        __typename
+      }
       comment
       image
       createdAt

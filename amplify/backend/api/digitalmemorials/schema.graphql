@@ -8,9 +8,19 @@ type Condolence @model @auth(rules: [ { allow: public } ] ){
   comment: String
 }
 
-type Memory @model @auth(rules: [ { allow: public } ] ){
+type Memory @model @auth(rules: [{ allow: public }]) {
   id: ID!
   name: String!
   comment: String
   image: String
+  responses: [Response] @hasMany(indexName: "byMemory", fields: ["id"])
+}
+
+type Response @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  memoryId: ID! @index(name: "byMemory", sortKeyFields: ["createdAt"])
+  memory: Memory! @belongsTo(fields: ["memoryId"])
+  comment: String!
+  image: String
+  createdAt: AWSDateTime
 }
