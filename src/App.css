@@ -1,5 +1,8 @@
-.App {
+body, .App {
+  background-color: #f0f4f8; 
   text-align: center;
+  margin: 0; 
+  height: 100%; 
 }
 
 .App-logo {
@@ -14,7 +17,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -36,3 +38,37 @@
     transform: rotate(360deg);
   }
 }
+
+.tabs-container {
+  display: flex;
+  justify-content: center; /* Align buttons in the center */
+  gap: 25px; /* Adds a gap between buttons */
+  padding: 20px 20px; /* Adds some padding above and below the buttons */
+}
+
+.tab-button {
+  background-color: transparent; /* Clear background */
+  border: 2px solid black; /* Optional: adds a border */
+  border-radius: 5px; /* Adds rounded corners */
+  color: black; /* Black text color */
+  padding: 10px 20px; /* Bigger, more clickable area */
+  font-size: 1.75rem; /* Larger font size */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  transition: transform 0.3s ease; /* Transition for the transform property */
+}
+
+.tab-button:hover {
+  transform: scale(1.15); /* Grow effect on hover, no background color change */
+}
+
+.tab-button:active {
+  transform: scale(0.85); /* Slight shrink effect for an active press simulation */
+}
+
+/* Styles for the active tab button if needed */
+.tab-button.active {
+  background-color: transparent; /* Keeps background clear for active state */
+  color: black; /* Maintain black text for consistency */
+  border-color: #007bff; /* Optionally highlight the active button with a border color */
+}
+

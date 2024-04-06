@@ -40,7 +40,7 @@ export const MemoryForm = ({ onMemorySubmit }) => {
   }
 
   return (
-    <View as="form" onSubmit={createMemory} padding="3rem" backgroundColor="white" boxShadow="small" maxWidth="600px" margin="auto">
+    <View as="form" onSubmit={createMemory} padding="3rem" boxShadow="small" maxWidth="600px" margin="auto">
       <Heading level={1} style={{ paddingBottom: '2rem', textAlign: 'center' }}>Memory Wall</Heading>
       <Flex direction="column" gap="1rem">
         <TextField

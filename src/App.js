@@ -17,6 +17,7 @@ import { generateClient } from 'aws-amplify/api';
 const client = generateClient();
 
 const App = ({ signOut }) => {
+  const [activeTab, setActiveTab] = useState('Obituary');
   const [memories, setMemories] = useState([]);
   const [condolences, setCondolences] = useState([]);
   const [responses, setResponses] = useState([]);
@@ -46,14 +47,36 @@ const App = ({ signOut }) => {
     setResponses(apiData.data.listResponses.items);
   };
 
+  const renderActiveTab = () => {
+    switch (activeTab) {
+      case 'Obituary':
+        return <Obituary />;
+      case 'Gallery':
+        return <PhotoGallery />;
+      case 'Timeline':
+        return <LifeTimeline />;
+      case 'Memories':
+        return (
+          <>
+            <MemoryForm onMemorySubmit={fetchAllData} />
+            <MemoryList memories={memories} fetchMemories={fetchMemories} responses={responses} fetchResponses={fetchResponses} />
+          </>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <View className="App">
       <Header signOut={signOut} />
-      <Obituary/>
-      <PhotoGallery/>
-      <LifeTimeline/>
-      <MemoryForm onMemorySubmit={fetchAllData} />
-      <MemoryList memories={memories} fetchMemories={fetchMemories} responses={responses} fetchResponses={fetchResponses} />
+      <div className="tabs-container">
+        <button className="tab-button" onClick={() => setActiveTab('Obituary')}>Obituary</button>
+        <button className="tab-button" onClick={() => setActiveTab('Gallery')}>Gallery</button>
+        <button className="tab-button" onClick={() => setActiveTab('Timeline')}>Timeline</button>
+        <button className="tab-button" onClick={() => setActiveTab('Memories')}>Memories</button>
+      </div>
+      {renderActiveTab()}
       <CondolenceForm onCondolenceSubmit={fetchCondolences} />
       <CondolenceList condolences={condolences} fetchCondolences={fetchCondolences} />
       <Footer/>
