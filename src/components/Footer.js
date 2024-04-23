@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from '@aws-amplify/ui-react';
 
-export const Footer = ({ text = '© 2024 Digital Memorials. All rights reserved.' }) => {
+export const Footer = ({ text = '© 2024 Digital Memorials. All rights reserved.' }) => {  // Footer Component with Default Property and Styling
   return (
     <View
       as="footer"

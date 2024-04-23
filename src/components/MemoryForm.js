@@ -4,24 +4,24 @@ import { uploadData, getUrl } from 'aws-amplify/storage';
 import { generateClient } from 'aws-amplify/api';
 import { createMemory as createMemoryMutation } from '../graphql/mutations';
 
-const client = generateClient();
+const client = generateClient(); // GraphQL Client Instance
 
-export const MemoryForm = ({ onMemorySubmit }) => {
+export const MemoryForm = ({ onMemorySubmit }) => { // Component to Handle Creation of Memories
     
-  async function createMemory(event) {
-    event.preventDefault();
-    const form = new FormData(event.target);
-    const image = form.get("image");
+  async function createMemory(event) { // Function to Handle Form Submission
+    event.preventDefault(); // Stops Default Form Submission Behaviour 
+    const form = new FormData(event.target); // Collects Form Data
+    const image = form.get("image"); // Retrieves Image from Form Data
     let imageUrl = null;
 
-    if (image && image.name) {
-      const fileName = `${Date.now()}-${image.name}`;
+    if (image && image.name) { // Handling Image Upload 
+      const fileName = `${Date.now()}-${image.name}`; // Makes Unique Filename from Current Datetime
       await uploadData({
         key: fileName,
-        data: image
+        data: image // Uploads the Image
       });
-      const urlResponse = await getUrl({ key: fileName });
-      imageUrl = urlResponse.url;
+      const urlResponse = await getUrl({ key: fileName }); // Retrieves the URL of Uploaded Image
+      imageUrl = urlResponse.url; // Stores URL so it can be Used in Mutation 
     }
 
     const data = {
@@ -30,16 +30,17 @@ export const MemoryForm = ({ onMemorySubmit }) => {
       image: imageUrl,
     };
 
-    await client.graphql({
+    await client.graphql({ // Preforms the GraphQL Mutation to Create a Memory in the Database
       query: createMemoryMutation,
       variables: { input: data },
     });
 
-    onMemorySubmit();
-    event.target.reset();
+    onMemorySubmit(); // Prop to Fetch Current Memories
+    event.target.reset(); // Reset Form Fields
   }
 
-  return (
+  return ( 
+    // Form Layout
     <View as="form" onSubmit={createMemory} padding="3rem" boxShadow="small" maxWidth="600px" margin="auto">
       <Heading level={1} style={{ paddingBottom: '2rem', textAlign: 'center' }}>Memory Wall</Heading>
       <Flex direction="column" gap="1rem">

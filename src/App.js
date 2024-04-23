@@ -14,40 +14,40 @@ import { CondolenceList } from "./components/CondolenceList";
 import { listMemories, listCondolences, listResponses } from "./graphql/queries";
 import { generateClient } from 'aws-amplify/api';
 
-const client = generateClient();
+const client = generateClient(); // GraphQL Client Instance
 
-const App = ({ signOut }) => {
+const App = ({ signOut }) => { // States for Managing Active Tab and Data Collections
   const [activeTab, setActiveTab] = useState('Obituary');
   const [memories, setMemories] = useState([]);
   const [condolences, setCondolences] = useState([]);
   const [responses, setResponses] = useState([]);
 
-  useEffect(() => {
+  useEffect(() => { // Fetches All Data 
     fetchAllData();
   }, []);
 
-  const fetchAllData = async () => {
+  const fetchAllData = async () => { // Function to Collect All Data from Backend
     await fetchMemories();
     await fetchCondolences();
     await fetchResponses();
   };
 
-  const fetchMemories = async () => {
+  const fetchMemories = async () => { // Fetch Memories from the GraphQL API
     const apiData = await client.graphql({ query: listMemories });
-    setMemories(apiData.data.listMemories.items);
+    setMemories(apiData.data.listMemories.items); // Set Memories into State
   };
 
-  const fetchCondolences = async () => {
+  const fetchCondolences = async () => { // Fetch Condolences from the GraphQL API
     const apiData = await client.graphql({ query: listCondolences });
-    setCondolences(apiData.data.listCondolences.items);
+    setCondolences(apiData.data.listCondolences.items); // Set Condolences into State
   };
 
-  const fetchResponses = async () => {
+  const fetchResponses = async () => { // Fetch Responses from the GraphQL API
     const apiData = await client.graphql({ query: listResponses });
-    setResponses(apiData.data.listResponses.items);
+    setResponses(apiData.data.listResponses.items); // Set Responses into State
   };
 
-  const renderActiveTab = () => {
+  const renderActiveTab = () => { // Function That Displays Components Depending on State 
     switch (activeTab) {
       case 'Obituary':
         return <Obituary />;
@@ -63,13 +63,13 @@ const App = ({ signOut }) => {
           </>
         );
       default:
-        return null;
+        return null; // Obituary is Set to Default 
     }
   };
 
-  return (
+  return ( // Main App Container - ClassNames Refer to App.css
     <View className="App">
-      <Header signOut={signOut} />
+      <Header signOut={signOut} /> 
       <div className="tabs-container">
         <button className="tab-button" onClick={() => setActiveTab('Obituary')}>Obituary</button>
         <button className="tab-button" onClick={() => setActiveTab('Gallery')}>Gallery</button>
@@ -84,4 +84,4 @@ const App = ({ signOut }) => {
   );
 };
 
-export default withAuthenticator(App);
+export default withAuthenticator(App); // App is Wrapped by Authentication Component 

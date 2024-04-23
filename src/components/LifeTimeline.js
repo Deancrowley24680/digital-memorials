@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, Text } from '@aws-amplify/ui-react';
 
-const timelineEvents = [
+const timelineEvents = [ // Array for Storing Timeline Events 
   { date: '01-01-1950', title: 'Born', description: 'I was born in Tramore, Co.Waterford.' },
   { date: '05-05-1968', title: 'Graduated Secondary School', description: 'Graduated from Ard Scoil.' },
   { date: '20-06-1972', title: 'University Graduation', description: 'Received my Bachelor’s degree in Computer Science.' },
   { date: '29-09-1979', title: 'Married', description: 'Married my best friend in a beautiful ceremony.' },
 ];
 
-const LifeTimeline = () => {
+const LifeTimeline = () => { // Component to Display the Timeline Feature
   return (
     <View style={styles.wrapper}>
       <Text style={styles.heading}>Life Timeline</Text>
@@ -29,7 +29,7 @@ const LifeTimeline = () => {
   );
 };
 
-const styles = {
+const styles = { // Styles Object for Each Component Element 
   wrapper: {
     display: 'flex',
     flexDirection: 'column',
@@ -88,7 +88,7 @@ const styles = {
     borderRadius: '15px',
     backgroundColor: 'white',
     width: '100%',
-    boxShadow: 'inset 5px 5px 10px #d1d9e6, inset -5px -5px 10px #ffffff', // Inner shadow for a subtle inset effect
+    boxShadow: 'inset 5px 5px 10px #d1d9e6, inset -5px -5px 10px #ffffff',
   },
   title: {
     fontSize: '1.75rem',

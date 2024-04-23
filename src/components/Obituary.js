@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from '@aws-amplify/ui-react';
 
 
-const Obituary = () => {
+const Obituary = () => { // Component to Display the Obitury Feature
   return (
     <View style={styles.container}>
       <Text as="h1" style={styles.heading}>In Loving Memory</Text>
@@ -22,7 +22,7 @@ const Obituary = () => {
   );  
 };
 
-const styles = {
+const styles = { // Styles Object for Each Component Element 
     container: {
       padding: '3rem',
       maxWidth: '900px',

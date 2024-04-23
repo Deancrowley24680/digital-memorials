@@ -7,7 +7,7 @@ import image4 from '../images/image4.jpg';
 import image5 from '../images/image5.jpg';
 import image6 from '../images/image6.jpg';
 
-const photos = [
+const photos = [ // Array for Storing Images for Gallery
   image1,
   image2,
   image3,
@@ -16,14 +16,14 @@ const photos = [
   image6
 ];
 
-const PhotoGallery = () => {
-  const [hoverIndex, setHoverIndex] = useState(null);
+const PhotoGallery = () => { // Component to Display the Gallery Feature
+  const [hoverIndex, setHoverIndex] = useState(null); // State to Track Which Image is Being Hovered Over
 
-  return (
+  return ( // Container for Gallery
     <View style={styles.wrapper}>
       <Text style={styles.title}>Gallery</Text>
       <View style={styles.galleryContainer}>
-        {photos.map((photo, index) => (
+        {photos.map((photo, index) => ( // Container for Each Photo - Maps Over Each Photo in Array & Apply a Hover Transformation 
           <View
             key={index}
             style={{
@@ -40,8 +40,8 @@ const PhotoGallery = () => {
     </View>
   );
 };
-
-const styles = {
+ 
+const styles = { // Styles Object for Each Component Element 
   wrapper: {
     textAlign: 'center',
     padding: '50px 50px',

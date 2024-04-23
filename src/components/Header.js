@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image, Heading, Text, Button } from '@aws-amplify/ui-react';
 import Picture from '../images/JohnSmith.jpg';
 
-export const Header = ({
+export const Header = ({ // Header Component with Default Properties and Styling
   name = 'John Smith',
   lifespan = '1950 - 2024',
   message = 'A loving memory to be cherished forever',
