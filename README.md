@@ -1,4 +1,41 @@
-# Getting Started with Create React App
+# Digital Memorials
+
+The aim of Digital Memorials is to modernise Ireland’s rich tradition of remembering those who have passed. Building upon what is already out there, each app produced from the developed architecture in this project will aim to create an original and custom space online that anyone can visit and contribute to. It can be a private area for people to remember their loved ones while also a community of people, uploading and collecting memories on the domain of the namesake.\
+
+The current iteration based on this GitHub repo is avaialable @ https://www.john-smith.rip/
+
+## Academic Title
+
+A React, Cloud Based, Web Application for the 'Digital Memorials' Toolkit Service
+
+## Features
+
+Once users register an account, they have the ability to do the following:
+
+* Create a Condolence on the Book of Condolences
+* Add a Memory to the Memory Wall
+* Leave Replies to Other Memories
+
+## Technologies Used
+
+These are the technologies used in this project:
+
+### Front-End
+
+* React: React is a powerful library for building user interfaces. It will be the main front-end technology.
+* CSS: For structuring and styling the web pages.
+* JavaScript/TypeScript: For scripting and adding interactivity to the web app.
+* Node.js: Used to manage dependencies and run scripts through Node Package Manager. 
+
+### Back-End
+
+* Amazon Route 53: For domain registration and DNS management (e.g., “john-smith.rip”).
+* AWS Amplify: Integrates with React for easy deployment and provides features like authentication, GraphQL API, analytics, etc.
+* Amazon S3: For storing and retrieving the uploaded content, like images.
+* Amazon API Gateway: For creating, publishing, maintaining, monitoring, and securing APIs.
+* AWS Cognito: For user authentication and user management.
+
+## Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -45,26 +82,12 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## References
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The following is a list of online resources used to aid development:
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* AWS React Tutorial: Setting up notes application using the same technologies. Fixes were uploaded to AWS forum. Found @ https://aws.amazon.com/getting-started/hands-on/build-react-app-amplify-graphql/
+* GraphQL Schema Documentation: Setting up schema beyond tutorial. Found @ https://graphql.org/learn/schema/ & https://docs.aws.amazon.com/appsync/latest/devguide/schema-components.html
+* AWS Amplify Documentation: Building the application using AWS Amplify integrations. Found @ https://docs.amplify.aws/react/start/
+* GitHub Copilot: Troubleshooting and formatting files. Found @ https://github.com/features/copilot
+* Other Documentation: Other websites were used briefly for reference / explanation. 
